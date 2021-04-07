@@ -56,7 +56,7 @@ function start(){
     register( name , passwd , start ) 
 }
 
-const count = 25 
+const count = 20 
 for(let i = 1 ; i < count ; i ++ ){
     setTimeout( start , 260*i )
     // start()
