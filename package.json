@@ -5,5 +5,10 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1"
+  },
+  "scripts": {
+    "test" : "node index.js" ,
+    "pm" : "pm2 start index.js" , 
+    "logs" : "pm2 logs"
   }
 }
