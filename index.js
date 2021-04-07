@@ -16,12 +16,26 @@ function register( name , passwd , callback ){
         } ,
         responseType: 'json' ,
     }).catch( e => {
-        console.log(`Execute error.` , e )
-        callback()
+        const end = Date.now()
+        try{
+            console.log(`Execute error. ${e.response.data} ${end-start} ms`  )	
+        } catch(ee) {
+            console.log(`Execute error. ${end-start} ms`  )	
+        }
+	    setTimeout( callback , 469 )
     }).then( response => {
         const end = Date.now()
-        console.log( `Result:${response.data.ErrorMessage} , ${end-start} ms `  )
-        callback()
+	//	console.log( response ) 
+        try{
+            if( response && response.data ) {
+                    console.log( `Result:${response.data.ErrorMessage} , ${end-start} ms `  )
+            } else {
+        //		console.log( response ) 
+            }
+        }catch(e) {
+            console.log(`Execute error in callback. , ${end-start} ms `)
+        }
+       callback()
     })
 }
 
@@ -42,7 +56,8 @@ function start(){
     register( name , passwd , start ) 
 }
 
-for(let i = 1 ; i < 20 ; i ++ ){
-    setTimeout( start , 200*i )
+const count = 25 
+for(let i = 1 ; i < count ; i ++ ){
+    setTimeout( start , 260*i )
     // start()
 }
