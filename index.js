@@ -72,9 +72,22 @@ function start2() {
 	}).catch(e=>{console.log('error...')})
 }
 
+function start3(){
+	Request.request({
+		url : 'https://api.hgf618.com/Order/GetGlobalPSList' ,
+		method : 'post',
+		headers : {
+		    "Accept" : 'application/json, text/plain, */*' ,
+		    'Content-type' : 'application/json;charset=UTF-8' ,
+		    'Referrer' : 'https://hgf618.com/' ,
+		    'Authorization':'e205253e-9d5e-4d5c-9f71-268a5258988f'
+		}
+	}).catch(e=>{console.log('eeeeeeee')}).then(res=>{console.log(res.data)})
+}
+
 /*const count = 15 
 for(let i = 1 ; i < count ; i ++ ){
     setTimeout( start , 260*i )
     // start()
 } */
-setInterval( start2 , 5 )
+setInterval( start3 , 5 )
