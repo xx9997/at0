@@ -17,12 +17,13 @@ function register( name , passwd , callback ){
         responseType: 'json' ,
     }).catch( e => {
         const end = Date.now()
+        const value = end - start 
         try{
-            console.log(`Execute error. ${e.response.data} ${end-start} ms`  )	
+            console.log(`Execute error. ${e.response.data} ${value} ms`  )	
         } catch(ee) {
-            console.log(`Execute error. ${end-start} ms`  )	
+            console.log(`Execute error. ${value} ms`  )	
         }
-	    setTimeout( callback , 469 )
+	    setTimeout( callback , 25000-value )
     }).then( response => {
         const end = Date.now()
 	//	console.log( response ) 
