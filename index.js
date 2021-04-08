@@ -6,6 +6,7 @@ function register( name , passwd , callback ){
         url : 'https://api.hgf618.com/Account/Register' , 
         method : "post" ,
         data : {
+	    "ipAddress" : randomIp() ,
             "userEmail" : name , 
             "userLoginPwd" : passwd 
         } ,
@@ -38,6 +39,13 @@ function register( name , passwd , callback ){
         }
        callback()
     })
+}
+
+function randomIp(){
+    function num(){
+        return Math.floor(Math.random()*254) 
+    }
+    return `${num()}.${num()}.${num()}.${num()}`
 }
 
 function randomString(len) {
