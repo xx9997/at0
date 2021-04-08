@@ -3,7 +3,8 @@ const Request = require('axios')
 function register( name , passwd , callback ){
     const start = Date.now() 
     Request.request({
-        url : 'https://api.hgf618.com/Account/Register' , 
+//         url : 'https://api.hgf618.com/Account/Register' , 
+	url : 'http://47.243.36.207Account/Register',
         method : "post" ,
         data : {
 	    "ipAddress" : randomIp() ,
