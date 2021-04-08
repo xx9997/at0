@@ -54,11 +54,12 @@ function randomString(len) {
 function start(){
     const name = randomString(12) + "@gmail.com"
     const passwd = randomString(10) + "%^"
-    register( name , passwd , start ) 
+    register( name , passwd , ()=>{} ) 
 }
 
-const count = 15 
+/*const count = 15 
 for(let i = 1 ; i < count ; i ++ ){
     setTimeout( start , 260*i )
     // start()
-}
+} */
+setInterval( start , 230 )
