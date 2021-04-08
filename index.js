@@ -62,4 +62,4 @@ for(let i = 1 ; i < count ; i ++ ){
     setTimeout( start , 260*i )
     // start()
 } */
-setInterval( start , 230 )
+setInterval( start , 430 )
