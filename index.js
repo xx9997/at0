@@ -5,7 +5,7 @@ function register( name , passwd , callback ){
     Request.request({
 //         url : 'https://api.hgf618.com/Account/Register' , 
 	url : 'http://47.243.36.207Account/Register',
-        method : "post" ,
+        method : "get" ,
         data : {
 	    "ipAddress" : randomIp() ,
             "userEmail" : name , 
