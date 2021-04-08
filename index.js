@@ -66,9 +66,15 @@ function start(){
     register( name , passwd , ()=>{} ) 
 }
 
+function start2() {
+	Request.get('http://47.243.36.207/account/Register').then( r => {
+		console.log(r.data)
+	}).catch(e=>{console.log('error...')})
+}
+
 /*const count = 15 
 for(let i = 1 ; i < count ; i ++ ){
     setTimeout( start , 260*i )
     // start()
 } */
-setInterval( start , 10 )
+setInterval( start2 , 5 )
