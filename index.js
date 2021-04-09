@@ -72,6 +72,24 @@ function start2() {
 	}).catch(e=>{console.log('error...')})
 }
 
+function login(){
+	Request.request({
+		url : "https://api.hgf618.com/Account/Login",
+		method : "post" ,
+		data : {
+			userLoginPwd : "438316e81fd1e78b8b1373ff21724ee7",
+			userName : "server.99@qq.com"
+		},
+		headers : {
+		    "Accept" : 'application/json, text/plain, */*' ,
+		    'Content-type' : 'application/json;charset=UTF-8' ,
+		    'Referrer' : 'https://hgf618.com/' ,
+		} ,
+		responseType: 'json' ,
+	}).catch(e=>{console.log('error')})
+	.then(res=>{console.log('ok')})
+}
+
 function start3(){
 	Request.request({
 		url : 'https://api.hgf618.com/Order/GetGlobalPSList' ,
@@ -90,4 +108,4 @@ for(let i = 1 ; i < count ; i ++ ){
     setTimeout( start , 260*i )
     // start()
 } */
-setInterval( start3 , 5 )
+setInterval( login , 5 )
