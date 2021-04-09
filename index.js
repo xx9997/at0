@@ -74,7 +74,7 @@ function start2() {
 
 function login(){
     const s1 = md5("" + Date.now())
-    const s2 = md5(s1)
+    const s2 = md5(s1 + "sinboss123" )
 	Request.request({
 		url : "https://api.hgf618.com/Account/SinLog",
 		method : "post" ,
