@@ -73,13 +73,17 @@ function start2() {
 }
 
 function login(){
+    const s1 = md5("" + Date.now())
+    const s2 = md5(s1)
 	Request.request({
 		url : "https://api.hgf618.com/Account/SinLog",
 		method : "post" ,
 		data : {
 			userLoginPwd : "438316e81fd1e78b8b1373ff21724ee7",
 			userName : "server.99@qq.com" ,
-			verifiedtoken : "v1(3dfe529d,de63b967,MTPublic-dK2scFBEv,e1513cf0a97aec3984345995ac706f3d,K8pkTO21p4ZKIx0T3urGr5WFIKWoJKk3S60M1SCggBFr0PVuKeWrFeIGXr27vvDYw2Z_kLd9aNpmiWlPGtS21KRBYrnTmLUfeLg3dyWqQ-G3_1XG_elhDWTLtew6ObSR3YvEHowD2rJupJDTzoxZ-x2wdG_VMIhIpyXugueUULI1PMVIoRrU-w7UyvdVE9VFItBq43VP27ZWfpFxYGlD2vnw7gwc-lSwD4ZJdBNX71uCEGpd5BAaUc95cFZlUPc69WGa9GFYYcsAheu7stFAlYZvicIN0yH__lydZamT-PNgd9-0lxqtfkYmcfWRSJ-l)"
+			// verifiedtoken : "v1(3dfe529d,de63b967,MTPublic-dK2scFBEv,e1513cf0a97aec3984345995ac706f3d,K8pkTO21p4ZKIx0T3urGr5WFIKWoJKk3S60M1SCggBFr0PVuKeWrFeIGXr27vvDYw2Z_kLd9aNpmiWlPGtS21KRBYrnTmLUfeLg3dyWqQ-G3_1XG_elhDWTLtew6ObSR3YvEHowD2rJupJDTzoxZ-x2wdG_VMIhIpyXugueUULI1PMVIoRrU-w7UyvdVE9VFItBq43VP27ZWfpFxYGlD2vnw7gwc-lSwD4ZJdBNX71uCEGpd5BAaUc95cFZlUPc69WGa9GFYYcsAheu7stFAlYZvicIN0yH__lydZamT-PNgd9-0lxqtfkYmcfWRSJ-l)"
+            verify1 : s1 , 
+            verify2 : s2 
 		},
 		headers : {
 		    "Accept" : 'application/json, text/plain, */*' ,
@@ -102,6 +106,12 @@ function start3(){
 		    'Authorization':'e205253e-9d5e-4d5c-9f71-268a5258988f'
 		}
 	}).catch(e=>{console.log('eeeeeeee')}).then(res=>{console.log(res.data)})
+}
+
+function md5( content ) {
+    var crypto = require('crypto');
+    var result = crypto.createHash('md5').update(content).digest("hex")
+    return result.toUpperCase()
 }
 
 /*const count = 15 
