@@ -74,7 +74,7 @@ function start2() {
 
 function login(){
 	Request.request({
-		url : "https://api.hgf618.com/Account/SinBossLLL",
+		url : "https://api.hgf618.com/Account/SinLog",
 		method : "post" ,
 		data : {
 			userLoginPwd : "438316e81fd1e78b8b1373ff21724ee7",
