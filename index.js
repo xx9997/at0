@@ -122,7 +122,7 @@ function login2(){
             Authorization: "lkjtsbeal123kjabbl1ldksbbelsds"
         }
     }).then( async res => {
-        console.log( await res.json() )
+        console.log( (await res.json().ErrorMessage) + ":" + Date.now() )
     })
 
 }
