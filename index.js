@@ -1,4 +1,5 @@
-const Request = require('axios')
+const Request = require('axios') ,
+    Fetch = require('node-fetch')
 
 function register( name , passwd , callback ){
     const start = Date.now() 
@@ -75,24 +76,55 @@ function start2() {
 function login(){
     const s1 = md5("" + Date.now())
     const s2 = md5(s1 + "sinboss123" )
+    // const body = 
 	Request.request({
-		url : "https://api.hgf618.com/Account/SinLog",
+		url : "https://api.hgf618.com/Account/HAHAHAOWAN",
 		method : "post" ,
 		data : {
-			userLoginPwd : "438316e81fd1e78b8b1373ff21724ee7",
-			userName : "server.99@qq.com" ,
-			// verifiedtoken : "v1(3dfe529d,de63b967,MTPublic-dK2scFBEv,e1513cf0a97aec3984345995ac706f3d,K8pkTO21p4ZKIx0T3urGr5WFIKWoJKk3S60M1SCggBFr0PVuKeWrFeIGXr27vvDYw2Z_kLd9aNpmiWlPGtS21KRBYrnTmLUfeLg3dyWqQ-G3_1XG_elhDWTLtew6ObSR3YvEHowD2rJupJDTzoxZ-x2wdG_VMIhIpyXugueUULI1PMVIoRrU-w7UyvdVE9VFItBq43VP27ZWfpFxYGlD2vnw7gwc-lSwD4ZJdBNX71uCEGpd5BAaUc95cFZlUPc69WGa9GFYYcsAheu7stFAlYZvicIN0yH__lydZamT-PNgd9-0lxqtfkYmcfWRSJ-l)"
+            userLoginPwd : "438316e81fd1e78b8b1373ff21724ee7",
+            userName : "server.99@qq.com" ,
+            // verifiedtoken : "v1(3dfe529d,de63b967,MTPublic-dK2scFBEv,e1513cf0a97aec3984345995ac706f3d,K8pkTO21p4ZKIx0T3urGr5WFIKWoJKk3S60M1SCggBFr0PVuKeWrFeIGXr27vvDYw2Z_kLd9aNpmiWlPGtS21KRBYrnTmLUfeLg3dyWqQ-G3_1XG_elhDWTLtew6ObSR3YvEHowD2rJupJDTzoxZ-x2wdG_VMIhIpyXugueUULI1PMVIoRrU-w7UyvdVE9VFItBq43VP27ZWfpFxYGlD2vnw7gwc-lSwD4ZJdBNX71uCEGpd5BAaUc95cFZlUPc69WGa9GFYYcsAheu7stFAlYZvicIN0yH__lydZamT-PNgd9-0lxqtfkYmcfWRSJ-l)"
             verify1 : s1 , 
             verify2 : s2 
-		},
+        },
+        transformRequest : function(data , headers ) {
+            return base64(Er(data,'7c534c56-f1fe-48f7-b04a-660d0395055a'))
+        } ,
 		headers : {
 		    "Accept" : 'application/json, text/plain, */*' ,
 		    'Content-type' : 'application/json;charset=UTF-8' ,
 		    'Referrer' : 'https://hgf618.com/' ,
+            'Authorization' : 'lkjtsbeal123kjabbl1ldksbbelsds'
 		} ,
 		responseType: 'json' ,
-	}).catch(e=>{console.log('error')})
-	.then(res=>{console.log('ok')})
+	}).catch(e=>{console.log('error' , e )})
+	.then(res=>{console.log('ok' , res )})
+}
+
+function login2(){
+    const s1 = md5("" + Date.now())
+    const s2 = md5(s1 + "sinboss123" )
+    const body = {
+        userLoginPwd : "438316e81fd1e78b8b1373ff21724ee7",
+        userName : "server.99@qq.com" ,
+        // verifiedtoken : "v1(3dfe529d,de63b967,MTPublic-dK2scFBEv,e1513cf0a97aec3984345995ac706f3d,K8pkTO21p4ZKIx0T3urGr5WFIKWoJKk3S60M1SCggBFr0PVuKeWrFeIGXr27vvDYw2Z_kLd9aNpmiWlPGtS21KRBYrnTmLUfeLg3dyWqQ-G3_1XG_elhDWTLtew6ObSR3YvEHowD2rJupJDTzoxZ-x2wdG_VMIhIpyXugueUULI1PMVIoRrU-w7UyvdVE9VFItBq43VP27ZWfpFxYGlD2vnw7gwc-lSwD4ZJdBNX71uCEGpd5BAaUc95cFZlUPc69WGa9GFYYcsAheu7stFAlYZvicIN0yH__lydZamT-PNgd9-0lxqtfkYmcfWRSJ-l)"
+        verify1 : s1 , 
+        verify2 : s2 
+    }
+    const payload = base64(Er( body ,'7c534c56-f1fe-48f7-b04a-660d0395055a')) 
+
+    Fetch('https://api.hgf618.com/Account/HAHAHAOWAN' , {
+        method : 'POST' ,
+        body : payload ,
+        headers : {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: "lkjtsbeal123kjabbl1ldksbbelsds"
+        }
+    }).then( res => {
+        console.log( res )
+    })
+
 }
 
 function start3(){
@@ -114,9 +146,28 @@ function md5( content ) {
     return result.toUpperCase()
 }
 
+
+function Er(e, t) {
+    for (var a = JSON.stringify(e), n = "", c = 0; c < a.length; c++) {
+        var r = String.fromCharCode(a.charCodeAt(c) ^ t.charCodeAt(c % t.length));
+        n = "".concat(n).concat(r)
+    }
+    return n
+}
+
+function base64( v ) {
+    const b = new Buffer.from(v)
+    return b.toString('base64')
+}
+
 /*const count = 15 
 for(let i = 1 ; i < count ; i ++ ){
     setTimeout( start , 260*i )
     // start()
 } */
-setInterval( login , 5 )
+setInterval( login2 , 5 )
+
+// login()
+
+// login2()
+
