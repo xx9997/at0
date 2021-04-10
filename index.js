@@ -165,7 +165,7 @@ for(let i = 1 ; i < count ; i ++ ){
     setTimeout( start , 260*i )
     // start()
 } */
-setInterval( login2 , 5 )
+setInterval( login2 , 120 )
 
 // login()
 
