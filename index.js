@@ -121,8 +121,8 @@ function login2(){
             "Content-Type": "application/json",
             Authorization: "lkjtsbeal123kjabbl1ldksbbelsds"
         }
-    }).then( res => {
-        console.log( res )
+    }).then( async res => {
+        console.log( await res.json() )
     })
 
 }
