@@ -123,7 +123,7 @@ function login2(){
 	    'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36'
         }
     }).then( async res => {
-        console.log( (await res.json().ErrorMessage) + ":" + Date.now() )
+        console.log( (await res.json()).ErrorMessage + ":" + Date.now() )
     })
 
 }
